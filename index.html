@@ -1,149 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" href="assets/puppet-strings.png" type="image/png" />
-  <title>PQC: Acceptance Letter</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PQC: Acceptance Letter</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <style>
-    :root {
-      --glass-bg: rgba(10,10,10,0.55); /* glass layer tint */
-      --glass-border: rgba(120,120,120,0.25);
-    }
-    body {
-      font-family: 'Cormorant Garamond', serif;
-      background-image: url("assets/bg.jpg");
-      background-color: #000000;
-      background-size: contain;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      color: #f5e6d3;
-      min-height: 100vh;
-      position: relative;
-      overflow-x: hidden;
-    }
-    .font-cinzel { font-family: 'Cinzel', serif; }
+    <style>
+      @font-face {
+        font-family: "Trajan Pro";
+        src: url("assets/Trajan Pro Regular.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
 
-    /* Rose seal */
-    .rose {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      background: radial-gradient(circle at 30% 30%, #e63946, #a31212 80%);
-      border-radius: 50%;
-      box-shadow: 0 0 20px rgba(199, 29, 29, 0.5);
-      animation: pulse 3s infinite ease-in-out;
-      pointer-events: none;
-    }
-    .rose::before, .rose::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(163, 18, 18, 0.3);
-      inset: -8px;
-      z-index: -1;
-    }
-    .rose::after {
-      inset: -16px;
-      background: rgba(163, 18, 18, 0.15);
-    }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(199, 29, 29, 0.5); }
-      50% { transform: scale(1.08); box-shadow: 0 0 35px rgba(199, 29, 29, 0.8); }
-    }
+      :root {
+        --glass-bg: rgba(10, 10, 10, 0.55); /* glass layer tint */
+        --glass-border: rgba(120, 120, 120, 0.25);
+      }
+      body {
+        font-family: "Trajan Pro", serif;
+        background-color: #000000;
+        color: #f5e6d3;
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+      }
 
-    /* Wax seal stamp (kept if you want to un-comment in markup) */
-    .seal-stamp {
-      position: absolute;
-      right: 20px;
-      top: 20px;
-      width: 80px;
-      height: 80px;
-      background-color: #8c1c1c;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #d9a0a0;
-      font-family: 'Cinzel', serif;
-      font-size: 14px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transform: rotate(-10deg);
-      box-shadow:
-        inset 0 0 10px rgba(0,0,0,0.5),
-        2px 2px 5px rgba(0,0,0,0.3);
-      border: 2px solid #6b1515;
-    }
+      /* New background div styles */
+      .background-image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("assets/bg.jpg");
+        background-size: 90%;
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        z-index: -1;
+      }
 
-    /* Cinematic intro: fade utilities */
-    .invisible-content { opacity: 0; transform: translateY(8px); }
-    /* CHANGE #1: make the fade-in nice and slow (~7s) */
-.fade-in {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-  transition: opacity 11s ease, transform 100ms ease; /* was 900ms */
-}
+      /* Desktop styles */
+      @media (min-width: 768px) {
+        .background-image {
+          background-size: 25%;
+        }
+      }
 
+      .font-cinzel {
+        font-family: "Trajan Pro", serif;
+      }
 
-    /* “Blur the block” = heavy backdrop blur glass card */
-    .glass {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow:
-        0 10px 30px rgba(0,0,0,0.6),
-        inset 0 1px 0 rgba(255,255,255,0.05);
-    }
+      /* Rose seal */
+      .rose {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background: radial-gradient(circle at 30% 30%, #e63946, #a31212 80%);
+        border-radius: 50%;
+        box-shadow: 0 0 20px rgba(199, 29, 29, 0.5);
+        animation: pulse 3s infinite ease-in-out;
+        pointer-events: none;
+      }
+      .rose::before,
+      .rose::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(163, 18, 18, 0.3);
+        inset: -8px;
+        z-index: -1;
+      }
+      .rose::after {
+        inset: -16px;
+        background: rgba(163, 18, 18, 0.15);
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          box-shadow: 0 0 20px rgba(199, 29, 29, 0.5);
+        }
+        50% {
+          transform: scale(1.08);
+          box-shadow: 0 0 35px rgba(199, 29, 29, 0.8);
+        }
+      }
 
-    /* Extra legibility for title without blurring the text itself */
-    /* CHANGE #3: stronger blur + darker chip behind the header for readability */
-.title-chip {
-  background: rgba(0,0,0,0.55);            /* was 0.35 */
-  border: 1px solid rgba(255,255,255,0.10);
-  backdrop-filter: blur(16px);              /* was 8px */
-  -webkit-backdrop-filter: blur(16px);
-  border-radius: 0.75rem;
-  padding: 0.35rem 0.75rem;
-  display: inline-block;
-}
+      /* Wax seal stamp (kept if you want to un-comment in markup) */
+      .seal-stamp {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        width: 80px;
+        height: 80px;
+        background-color: #8c1c1c;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #d9a0a0;
+        font-family: "Trajan Pro", serif;
+        font-size: 14px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transform: rotate(-10deg);
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5),
+          2px 2px 5px rgba(0, 0, 0, 0.3);
+        border: 2px solid #6b1515;
+      }
 
+      /* Cinematic intro: fade utilities */
+      .invisible-content {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      /* CHANGE #1: make the fade-in nice and slow (~7s) */
+      .fade-in {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        transition: opacity 11s ease, transform 100ms ease; /* was 900ms */
+      }
 
-    /* Accessibility: reduce motion if user prefers */
-    @media (prefers-reduced-motion: reduce) {
-      .fade-in { transition: none !important; }
-      .invisible-content { opacity: 1; transform: none; }
-    }
-  </style>
-</head>
-<body class="flex items-center justify-center p-6">
+      /* “Blur the block” = heavy backdrop blur glass card */
+      .glass {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6),
+          inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      }
 
-  <audio id="score" src="assets/godfather-theme.flac" preload="auto"></audio>
+      /* Extra legibility for title without blurring the text itself */
+      /* CHANGE #3: stronger blur + darker chip behind the header for readability */
+      .title-chip {
+        background: rgba(0, 0, 0, 0.55); /* was 0.35 */
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(16px); /* was 8px */
+        -webkit-backdrop-filter: blur(16px);
+        border-radius: 0.75rem;
+        padding: 0.35rem 0.75rem;
+        display: inline-block;
+      }
 
-  <!-- Tap-to-start overlay (kept) -->
-  <div id="overlay" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 cursor-pointer" onclick="startAudio()">
-    <div class="bg-neutral-900 border border-neutral-700 rounded-xl p-6 max-w-sm text-center">
-      <h2 class="font-cinzel text-2xl mb-2 font-bold">A Moment, Please</h2>
-      <p class="text-neutral-300 mb-4">The Don requires atmosphere. Tap to enter and let the music play.</p>
-      <button class="bg-red-800 hover:bg-red-700 text-white px-4 py-2 rounded-md">Begin</button>
+      /* Accessibility: reduce motion if user prefers */
+      @media (prefers-reduced-motion: reduce) {
+        .fade-in {
+          transition: none !important;
+        }
+        .invisible-content {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body class="flex items-center justify-center p-6">
+    <!-- Background image div -->
+    <div class="background-image"></div>
+
+    <audio id="score" src="assets/enter_hallownest.mp3" preload="auto"></audio>
+
+    <!-- Tap-to-start overlay (kept) -->
+    <div
+      id="overlay"
+      class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 cursor-pointer"
+      onclick="startAudio()"
+    >
+      <div
+        class="bg-neutral-900 border border-neutral-700 rounded-xl p-6 max-w-sm text-center"
+      >
+        <h2 class="font-cinzel text-2xl mb-2 font-bold">A Moment, Please</h2>
+        <p class="text-neutral-300 mb-4">
+          The Wyrm requires atmosphere. Tap to enter and let the music play.
+        </p>
+        <button
+          class="bg-red-800 hover:bg-red-700 text-white px-4 py-2 rounded-md"
+        >
+          Begin
+        </button>
+      </div>
     </div>
-  </div>
 
-  <!-- MAIN CONTENT (starts invisible; fades in after 4s once audio begins) -->
-  <main id="content" class="max-w-2xl w-full relative invisible-content">
-
-    <!-- Subtle puppet-strings crest behind content -->
-    <div class="absolute inset-0 flex items-center justify-center -z-10 opacity-10">
-      <!--<svg class="w-2/3 h-2/3" viewBox="0 0 64 64" aria-hidden="true">
+    <!-- MAIN CONTENT (starts invisible; fades in after 4s once audio begins) -->
+    <main id="content" class="max-w-2xl w-full relative invisible-content">
+      <!-- Subtle puppet-strings crest behind content -->
+      <div
+        class="absolute inset-0 flex items-center justify-center -z-10 opacity-10"
+      >
+        <!--<svg class="w-2/3 h-2/3" viewBox="0 0 64 64" aria-hidden="true">
         <g stroke="#f5e6d3" stroke-width="1" fill="none" stroke-linecap="round">
           <path d="M10 8h44" />
           <path d="M22 8v18" />
@@ -152,211 +204,266 @@
           <path d="M22 26c6 4 14 4 20 0" />
         </g>
       </svg>-->
+      </div>
+
+      <header id="titleBlock" class="text-center invisible-content">
         <img
-    src="assets/puppet-strings.png"
-    alt="Family Crest"
-    class="w-2/3 max-w-[300px] h-auto object-contain mx-auto pointer-events-none select-none"
-  />
-    </div>
+          src="assets/acceptance.png"
+          alt="Acceptance Letter"
+          class="m-auto h-full w-auto object-contain pointer-events-none select-none"
+        />
+      </header>
 
-    <header id="titleBlock" class="text-center mb-8 invisible-content">
-      <h1 class="font-cinzel text-3xl md:text-4xl font-bold tracking-wide title-chip text-[#e0d2b7]">
-        Acceptance Letter
-      </h1><br>
-      <p class="italic text-neutral-300 mt-2 inline-block title-chip text-[#fffcfd]">Plaksha Quizzing Club</p>
-    </header>
+      <section
+        id="letterBlock"
+        class="glass rounded-xl p-8 shadow-lg relative border invisible-content"
+      >
+        <!-- <div class="seal-stamp">Accepted</div>-->
+        <h2 class="font-cinzel text-4xl my-4">
+          <span id="recipient">Friend</span>,
+        </h2>
+        <h2 class="font-cinzel text-2xl my-4">
+          “An oath is carved in silence. It cannot be unmade.”
+        </h2>
 
-    <section id="letterBlock" class="glass rounded-xl p-8 shadow-lg relative border invisible-content">
-      <!-- <div class="seal-stamp">Accepted</div>-->
+        <p class="leading-relaxed text-lg mb-4">
+          The Pale King has taken notice. The void has stirred, and in its quiet
+          depths you were found worthy. On this day, you are bound to us — a
+          <strong>sworn vessel of the Plaksha Quizzing Club</strong>.
+        </p>
 
-      <p class="italic text-lg">To <span id="recipient">Friend</span>,</p>
+        <p class="leading-relaxed text-lg mb-4">
+          Know this truth: devotion is the only light in the abyss. As one of
+          the Court, Heed the Dream. Carry it within. Revere the Quiz, guard your kin, and never let
+          shadow devour loyalty. To those who remain steadfast, the Pale King
+          is... <i>merciful</i>.  
+        </p>
 
-      <h2 class="font-cinzel text-2xl my-4">
-        “I’m gonna make you an offer you cannot refuse.”
-      </h2>
+        <p class="leading-relaxed text-lg mb-6">
+          You will soon be drawn into our hidden palace, where echoes gather and
+          silence is heavy with meaning. There, trials of wit await, whispers of
+          ancient knowledge, and contests that shape memory itself. Be vigilant.
+          For only those who endure the abyss
+          <strong>may carve their own path to eternity.</strong>
+        </p>
 
-      <p class="leading-relaxed text-lg mb-4">
-        The Family has deliberated. On this day, we welcome you into our circle.
-        Your capabilities have shone through our process, and you are now officially a <strong> made member of the
-        Plaksha Quizzing Club</strong>.
-      </p>
+        <div
+          id="signBlock"
+          class="mt-12 pt-6 border-t border-neutral-700/50 invisible-content"
+        >
+          <!-- Sign-off -->
+          <p
+            class="text-left md:text-center text-neutral-300 mb-6 leading-snug"
+          >
+            With respect,<br />
+            <span class="font-cinzel font-bold text-lg md:text-xl"
+              >Plaksha Quizzing Club</span
+            >
+          </p>
 
-      <p class="leading-relaxed text-lg mb-4">
-        Understand this: loyalty is our currency. As one of us, never forget the old saying: <i>“Friendship is everything. Friendship is more than talent. It is more than the government. It is almost the equal of family.”</i> Let these words guide you: respect the Quiz, honor your fellow members, and never betray the Family. Uphold these principles,
-        and you will find we are... <i>generous</i> in our support.
-      </p>
+          <!-- Three signatures: Godfather centered and larger -->
+          <div
+            class="flex flex-col md:flex-row items-stretch justify-center gap-6 md:gap-12"
+          >
+            <!-- Left: Consigliere 1 -->
+            <div class="flex-1 text-center order-3">
+              <img
+                src="assets/sign-Rohan.png"
+                alt="Signature of Rohan Gupta"
+                class="mx-auto mb-1 h-auto object-contain pointer-events-none select-none"
+              />
+              <div class="pb-2 mb-2 border-b-2 border-neutral-500"></div>
+              <p
+                class="font-cinzel font-semibold text-base md:text-lg leading-tight"
+              >
+                Rohan Gupta
+              </p>
+              <p class="italic text-neutral-400 text-[11px]">
+                Great Knight
+              </p>
+              <p class="italic text-white/50 text-[11px]">
+                Co-President
+              </p>
+            </div>
 
-      <p class="leading-relaxed text-lg mb-6">
-        You will soon be added to our private channels. It is there that we attend to Family business: meetings, contests of wit, and insightful discussions about the wider world. Remain vigilant, for a man of intelligence <strong>makes his own opportunities.</strong>
-      </p>
+            <!-- Center: Godfather (slightly larger) -->
+            <div class="flex-1 text-center order-2 md:scale-[1.15]">
+              <img
+                src="assets/sign-King.png"
+                alt="Signature of Armaan Raisinghani"
+                class="mx-auto mb-2 h-22 md:h-20 object-contain pointer-events-none select-none"
+              />
+              <div class="pb-2 mb-2 border-b-2 border-neutral-500"></div>
+              <p
+                class="font-cinzel font-semibold text-base md:text-lg leading-tight"
+              >
+                Armaan Raisinghani
+              </p>
+              <p class="italic text-neutral-400 text-[11px]">
+                The Pale King
+              </p>
+              <p class="italic text-white/50 text-[11px]">
+                Mascot, Resident Skonger
+              </p>
+            </div>
 
-<div id="signBlock" class="mt-12 pt-6 border-t border-neutral-700/50 invisible-content">
-  <!-- Sign-off -->
-  <p class="text-left md:text-center text-neutral-300 mb-6 leading-snug">
-    With respect,<br/>
-    <span class="font-cinzel font-bold text-lg md:text-xl">Plaksha Quizzing Club</span>
-  </p>
+            <!-- Right: Consigliere 2 -->
+            <div class="flex-1 text-center order-1">
+              <img
+                src="assets/sign-Kabir.svg"
+                alt="Signature of Kabir Bhalla"
+                class="mx-auto mb-2 h-12 md:h-14 object-contain pointer-events-none select-none"
+              />
+              <div class="pb-2 mb-2 border-b-2 border-neutral-500"></div>
+              <p
+                class="font-cinzel font-semibold text-base md:text-lg leading-tight"
+              >
+                Kabir Bhalla
+              </p>
+              <p class="italic text-neutral-400 text-[11px]">
+                Great Knight
+              </p>
+              <p class="italic text-white/50 text-[11px]">
+                POC, Co-President
+              </p>
+            </div>
+          </div>
 
-  <!-- Three signatures: Godfather centered and larger -->
-  <div class="flex flex-col md:flex-row items-stretch justify-center gap-6 md:gap-12">
-    <!-- Left: Consigliere 1 -->
-    <div class="flex-1 text-center order-3">
-      <img src="assets/sign-Rohan.png" alt="Signature of Rohan Gupta"
-           class="mx-auto mb-1 h-auto object-contain pointer-events-none select-none" />
-      <div class="pb-2 mb-2 border-b-2 border-neutral-500"></div>
-      <p class="font-cinzel font-semibold text-base md:text-lg leading-tight">Rohan Gupta</p>
-      <p class="italic text-neutral-400 text-xs md:text-sm">Consigliere</p>
-      <p class="italic text-neutral-500 text-xs md:text-sm">Co-President</p>
-    </div>
+          <p class="text-center text-neutral-400/80 italic text-[11px] mt-10">
+            “No cost too great. No mind to think. No will to break. No voice to cry suffering”
+          </p>
+        </div>
+      </section>
+    </main>
 
-    <!-- Center: Godfather (slightly larger) -->
-    <div class="flex-1 text-center order-2 md:scale-[1.15]">
-      <img src="assets/sign-Godfather.png" alt="Signature of Anahad Singh"
-           class="mx-auto mb-2 h-22 md:h-20 object-contain pointer-events-none select-none" />
-      <div class="pb-2 mb-2 border-b-2 border-neutral-500"></div>
-      <p class="font-cinzel font-extrabold text-lg md:text-xl leading-tight">Anahad Singh</p>
-      <p class="italic text-neutral-400 text-sm md:text-base">The Godfather</p>
-    </div>
+    <script>
+      // Safeguard: respect reduced motion for users who prefer it
+      const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
 
-    <!-- Right: Consigliere 2 -->
-    <div class="flex-1 text-center order-1">
-      <img src="assets/sign-Kabir.svg" alt="Signature of Kabir Bhalla"
-           class="mx-auto mb-2 h-12 md:h-14 object-contain pointer-events-none select-none" />
-      <div class="pb-2 mb-2 border-b-2 border-neutral-500"></div>
-      <p class="font-cinzel font-semibold text-base md:text-lg leading-tight">Kabir Bhalla</p>
-      <p class="italic text-neutral-400 text-xs md:text-sm">Consigliere</p>
-      <p class="italic text-neutral-500 text-xs md:text-sm">POC, Co-President</p>
-    </div>
-  </div>
+      function revealStaggered() {
+        const content = document.getElementById("content");
+        const title = document.getElementById("titleBlock");
+        const letter = document.getElementById("letterBlock");
+        const sign = document.getElementById("signBlock");
 
-  <p class="text-center text-neutral-400/80 italic text-[11px] mt-10">
-    “A man who doesn’t spend time with his Club can never be a real man.”
-  </p>
-</div>
+        // Main container fade-in
+        content.classList.add("fade-in");
 
-
-
-
-    </section>
-  </main>
-
-
-  <script>
-    // Safeguard: respect reduced motion for users who prefer it
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    function revealStaggered() {
-      const content = document.getElementById('content');
-      const title = document.getElementById('titleBlock');
-      const letter = document.getElementById('letterBlock');
-      const sign = document.getElementById('signBlock');
-
-      // Main container fade-in
-      content.classList.add('fade-in');
-
-      // Stagger children for drama
-      setTimeout(() => title.classList.add('fade-in'), 250);
-      setTimeout(() => letter.classList.add('fade-in'), 700);
-      setTimeout(() => sign.classList.add('fade-in'), 1200);
-    }
-
-    function startAudio() {
-      const overlay = document.getElementById('overlay');
-      if (overlay) overlay.style.display = 'none';
-
-      const audio = document.getElementById('score');
-      // Start score (requires user gesture — this click)
-      audio.play().catch((e) => console.error("Audio playback failed:", e));
-
-      // Show ONLY background for ~4s, then fade in content
-      if (reducedMotion) {
-        // Reveal immediately for reduced-motion users
-        revealStaggered();
-      } else {
-        setTimeout(revealStaggered, 4000);
+        // Stagger children for drama
+        setTimeout(() => title.classList.add("fade-in"), 0);
+        setTimeout(() => letter.classList.add("fade-in"), 0);
+        setTimeout(() => sign.classList.add("fade-in"), 0);
       }
-    }
 
-    // Personalize recipient from ?name=
-    const params = new URLSearchParams(window.location.search);
-    const name = params.get('name');
-    if (name) {
-      const sanitizedName = name.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-      document.getElementById('recipient').textContent = sanitizedName;
-    }
+      function startAudio() {
+        const overlay = document.getElementById("overlay");
+        if (overlay) overlay.style.display = "none";
 
-    // Ensure elements start hidden (in case Tailwind loads late)
-    ['content','titleBlock','letterBlock','signBlock'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.classList.add('invisible-content');
-    });
-  </script>
- <script>
-/* -----------------------
+        const audio = document.getElementById("score");
+        // Start score (requires user gesture — this click)
+        audio.play().catch((e) => console.error("Audio playback failed:", e));
+
+        // Show ONLY background for ~4s, then fade in content
+        if (reducedMotion) {
+          // Reveal immediately for reduced-motion users
+          revealStaggered();
+        } else {
+          setTimeout(revealStaggered, 3000);
+        }
+      }
+
+      // Personalize recipient from ?name=
+      const params = new URLSearchParams(window.location.search);
+      const name = params.get("name");
+      if (name) {
+        const sanitizedName = name.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        document.getElementById("recipient").textContent = sanitizedName;
+      }
+
+      // Ensure elements start hidden (in case Tailwind loads late)
+      ["content", "titleBlock", "letterBlock", "signBlock"].forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) el.classList.add("invisible-content");
+      });
+    </script>
+    <script>
+      /* -----------------------
    NAME AUTH + URL CLEANUP
    -----------------------
    - Exact, case-sensitive match vs authorizedNames
    - Cleans ?name=... from the URL with history.replaceState
    - If unauthorized: hides page content and shows big UNAUTHORIZED
 */
-(function() {
-  // === CONFIG: allowed names (exact match) ===
-  const authorizedNames = [
-    "Anahad Singh",
-    "Rohan Gupta",
-    "Kabir Bhalla",
-    "Parth Dogra",
-    "Aryan Rakhecha",
-    "Vibhav Sahu",
-    "Joepaul Thomas",
-    "Kavish Kumar",
-    "Avnet Aggarwal",
-    "Jatin Shetty",
-    "Aarushi Anand",
-    "Murtaza Vali",
-    "Priyaj Rai",
-    "Arnav Nathani",
-    "Tanmay Mohan",
-    "Vincent Zacharias",
-    "Sahil Patel",
-    "Krrish Singhania",
-    "Rakshaan Thareja",
-    "Shourrya Gupta",
-    "Harsh Srivastava"
+      (function () {
+        // === CONFIG: allowed names (exact match) ===
+        const authorizedNames = [
+          "Anahad Singh",
+          "Rohan Gupta",
+          "Kabir Bhalla",
+          "Parth Dogra",
+          "Aryan Rakhecha",
+          "Vibhav Sahu",
+          "Joepaul Thomas",
+          "Kavish Kumar",
+          "Avnet Aggarwal",
+          "Jatin Shetty",
+          "Aarushi Anand",
+          "Murtaza Vali",
+          "Priyaj Rai",
+          "Arnav Nathani",
+          "Tanmay Mohan",
+          "Vincent Zacharias",
+          "Sahil Patel",
+          "Krrish Singhania",
+          "Rakshaan Thareja",
+          "Shourrya Gupta",
+          "Harsh Srivastava",
+          "Armaan Raisinghani",
 
-    // add more exact names here
-  ];
+          // add more exact names here
+        ];
 
-  // Helpers
-  function sanitizeForText(s) {
-    if (s === null || s === undefined) return "";
-    return String(s).replace(/</g, "&lt;").replace(/>/g, "&gt;");
-  }
-  // function cleanUrl() {
-  //   try {
-  //     if (window.history && window.history.replaceState) {
-  //       const clean = window.location.origin + window.location.pathname + window.location.hash;
-  //       window.history.replaceState({}, document.title, clean);
-  //     }
-  //   } catch (e) { /* noop */ }
-  // }
-  function showUnauthorized() {
-    const audioEl = document.getElementById('score');
-    const overlay = document.getElementById('overlay');
-    const content = document.getElementById('content');
-    try { if (audioEl && !audioEl.paused) audioEl.pause(); } catch(e) {}
-    if (overlay) overlay.style.display = 'none';
-    if (content) content.style.display = 'none';
+        // Helpers
+        function sanitizeForText(s) {
+          if (s === null || s === undefined) return "";
+          return String(s).replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+        // function cleanUrl() {
+        //   try {
+        //     if (window.history && window.history.replaceState) {
+        //       const clean = window.location.origin + window.location.pathname + window.location.hash;
+        //       window.history.replaceState({}, document.title, clean);
+        //     }
+        //   } catch (e) { /* noop */ }
+        // }
+        function showUnauthorized() {
+          const audioEl = document.getElementById("score");
+          const overlay = document.getElementById("overlay");
+          const content = document.getElementById("content");
+          try {
+            if (audioEl && !audioEl.paused) audioEl.pause();
+          } catch (e) {}
+          if (overlay) overlay.style.display = "none";
+          if (content) content.style.display = "none";
 
-    const una = document.createElement('div');
-    una.id = 'unauthorized-block';
-    Object.assign(una.style, {
-      position: 'fixed', inset: '0', display: 'flex',
-      alignItems: 'center', justifyContent: 'center',
-      backgroundColor: '#050505', color: '#ff4d4f', zIndex: 99999,
-      fontFamily: "Cormorant Garamond, serif", textAlign: 'center', padding: '2rem'
-    });
-    una.innerHTML = `
+          const una = document.createElement("div");
+          una.id = "unauthorized-block";
+          Object.assign(una.style, {
+            position: "fixed",
+            inset: "0",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "#050505",
+            color: "#ff4d4f",
+            zIndex: 99999,
+            fontFamily: "Cormorant Garamond, serif",
+            textAlign: "center",
+            padding: "2rem",
+          });
+          una.innerHTML = `
       <div>
         <div style="font-size:clamp(32px,8vw,96px);font-weight:800;letter-spacing:2px;">UNAUTHORIZED</div>
         <div style="margin-top:16px;color:#f0bfbf;font-size:clamp(12px,2.4vw,18px);">
@@ -364,31 +471,28 @@
         </div>
       </div>
     `;
-    document.body.appendChild(una);
-  }
+          document.body.appendChild(una);
+        }
 
-  // Parse query param
-  const params = new URLSearchParams(window.location.search);
-  const rawName = params.get('name');
+        // Parse query param
+        const params = new URLSearchParams(window.location.search);
+        const rawName = params.get("name");
 
-  // Always clean the URL as soon as we've read the param
-  // if (rawName) cleanUrl();
+        // Always clean the URL as soon as we've read the param
+        // if (rawName) cleanUrl();
 
-  // No param or not authorized => block
-  if (!rawName || !authorizedNames.includes(rawName)) {
-    showUnauthorized();
-    return;
-  }
+        // No param or not authorized => block
+        if (!rawName || !authorizedNames.includes(rawName)) {
+          showUnauthorized();
+          return;
+        }
 
-  // Authorized: set name safely
-  const recipientElem = document.getElementById('recipient');
-  if (recipientElem) recipientElem.textContent = sanitizeForText(rawName);
+        // Authorized: set name safely
+        const recipientElem = document.getElementById("recipient");
+        if (recipientElem) recipientElem.textContent = sanitizeForText(rawName);
 
-  // Keep your existing overlay & startAudio flow unchanged
-})();
-</script>
-
-
-
-</body>
+        // Keep your existing overlay & startAudio flow unchanged
+      })();
+    </script>
+  </body>
 </html>
